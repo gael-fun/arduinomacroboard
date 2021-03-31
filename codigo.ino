@@ -1,89 +1,117 @@
-#define BUTTON_KEY1 KEY_F13
-#define BUTTON_KEY2 KEY_F14
-#define BUTTON_KEY3 KEY_F15
-#define BUTTON_KEY4 KEY_F16
-#define BUTTON_KEY5 KEY_F17
-#define BUTTON_KEY6 KEY_F18
-#define BUTTON_KEY7 KEY_F19
-#define BUTTON_KEY8 KEY_F20
- 
-// aca defino los pins dou xd
-#define BUTTON_PIN1 2
-#define BUTTON_PIN2 3
-#define BUTTON_PIN3 4
-#define BUTTON_PIN4 5
-#define BUTTON_PIN5 6
-#define BUTTON_PIN6 7
-#define BUTTON_PIN7 8
-#define BUTTON_PIN8 9
-
+#define SHIFTLED 10
+#define POWERLED 11
 #include "Keyboard.h"
-//aca entro modo haker
+#define DEBOUNCE 10  // Debounce
+byte buttons[] = {
+  2, 3, 4, 5,6,7,8,9}; // Los pines A0-A5 Se conocen como 14-19
+#define NUMBUTTONS sizeof(buttons)
+byte pressed[NUMBUTTONS];
 
-class button {
-  public:
-  const char key;
-  const uint8_t pin;
- 
-  button(uint8_t k, uint8_t p) : key(k), pin(p){}
- 
-  void press(boolean state){
-    if(state == pressed || (millis() - lastPressed  <= debounceTime)){
-      return; 
+
+void setup() {
+  byte i;
+  pinMode(POWERLED,OUTPUT);
+  pinMode(SHIFTLED,OUTPUT);
+  for (i=0; i< NUMBUTTONS; i++) {
+    pinMode(buttons[i], INPUT);
+  }
+  delay(100);
+  Keyboard.begin();
+}
+
+
+
+void check_switches()
+{
+  byte index;
+
+  for (index = 0; index < NUMBUTTONS; index++) 
+  {
+    if (digitalRead(buttons[index]) and (pressed[index]<DEBOUNCE))
+    {
+      pressed[index]++;
     }
- 
-    lastPressed = millis();
- 
-    state ? Keyboard.press(key) : Keyboard.release(key);    
-    pressed = state;
-  }
- 
-  void update(){
-    press(!digitalRead(pin));
-  }
- 
-  private:
-  const unsigned long debounceTime = 30;
-  unsigned long lastPressed = 0;
-  boolean pressed = 0;
-} ;
- 
-button buttons[] = {
-  {BUTTON_KEY1, BUTTON_PIN1},
-  {BUTTON_KEY2, BUTTON_PIN2},
-  {BUTTON_KEY3, BUTTON_PIN3},
-  {BUTTON_KEY4, BUTTON_PIN4},
-  {BUTTON_KEY5, BUTTON_PIN5},
-  {BUTTON_KEY6, BUTTON_PIN6},
-  {BUTTON_KEY7, BUTTON_PIN7},
-  {BUTTON_KEY8, BUTTON_PIN8},
-};
- 
-const uint8_t NumButtons = sizeof(buttons) / sizeof(button);
-const uint8_t ledPin = 17;
- 
-void setup() { 
-  // para q no escriba alpedo solo xd
-  pinMode(1, INPUT_PULLUP);
-  if(!digitalRead(1)){
-    failsafe();
-  }
- 
-  pinMode(ledPin, OUTPUT);
-  digitalWrite(ledPin, HIGH);
-  TXLED0;
- 
-  for(int i = 0; i < NumButtons; i++){
-    pinMode(buttons[i].pin, INPUT_PULLUP);
+    else if (!digitalRead(buttons[index]))
+    {
+      pressed[index]=0;
+    }
   }
 }
- 
-void loop() {
-  for(int i = 0; i < NumButtons; i++){
-    buttons[i].update();
-  }
+
+
+void keySend(char key)
+{
+  digitalWrite(POWERLED, LOW);
+  Keyboard.write(key);
+  delay(100);
 }
+
+void loop()
+{
+  digitalWrite(POWERLED, HIGH);
+  delay(10);
+  check_switches();
+  
+  if (pressed[0] >= DEBOUNCE)
+  {
+    if (!digitalRead(SHIFTLED))
+    {
+      keySend(KEY_F13); // F13
+    }
+  }
+  else if (pressed[1] >= DEBOUNCE)
+  {
+    if (!digitalRead(SHIFTLED))
+    {
+      keySend(KEY_F14); 
+    }
+    
+  }
+  else if (pressed[2] >= DEBOUNCE)
+  {
+    if (!digitalRead(SHIFTLED))
+    {
+      keySend(KEY_F15); 
+    }
+   
+  }
  
-void failsafe(){
-  for(;;){} //por seguridad xd
+  else if (pressed[3] >= DEBOUNCE)
+  
+  {
+    keySend(KEY_F16); // ESC 
+  }
+  
+  else if (pressed[4] >= DEBOUNCE)
+  
+  {
+    keySend(KEY_F17); // ENTER
+  }
+
+  else if (pressed[5] >= DEBOUNCE)
+  
+  {
+    if (!digitalRead(SHIFTLED))
+    {
+      keySend(KEY_F18); 
+    }
+  }
+
+  else if (pressed[6] >= DEBOUNCE)
+  
+  {
+    if (!digitalRead(SHIFTLED))
+    {
+      keySend(KEY_F19); 
+    }
+
+  }
+
+  else if (pressed[7] >= DEBOUNCE)
+  {
+    if (!digitalRead(SHIFTLED))
+    {
+      keySend(KEY_F20); 
+    } 
+  }
 }
