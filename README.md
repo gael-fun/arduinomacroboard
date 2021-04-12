@@ -1,4 +1,4 @@
-<h1>About This proyect</h1>
+<h1>About this proyect</h1>
 This is a Macroboard. the purpose in this proyect is to map the keys to mute yourself in discord , obs , etc.
 <h1>How do i make one</h1>
 You Just need an Arduino pro micro with Atmega32u4 Chipset and some switches, you just upload my code and its working.
