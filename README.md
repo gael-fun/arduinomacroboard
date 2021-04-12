@@ -7,7 +7,7 @@ The pins you need to connect it are
 byte buttons[] = {2, 3, 4, 5,6,7,8,9}; //Also you can use the analogic pins you have to put them like this A0= 10
 
 ```
-Photo Below:
+# Photo Below
 <img src="https://i.imgur.com/OrkCfag.png">
 <img src="https://i.imgur.com/P76JepT.jpg">
 # ¿What my code does?
