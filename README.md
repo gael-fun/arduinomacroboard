@@ -13,14 +13,14 @@ byte buttons[] = {2, 3, 4, 5,6,7,8,9}; //Also you can use the analogic pins you 
 <h1>What the code does?</h1>
 It generates the F13-F20 keys and actuates them when you press the switches.
 Example code:
-```
+``
   if (pressed[0] >= DEBOUNCE)
   {
     if (!digitalRead(SHIFTLED))
     {
       keySend(KEY_F13); // F13
     }
-```
+``
 # Explanation of the code
 What the code does it detects if you press the switch so if you do it will turn on the integrated led in the arduino and then it sends the keypressed 
 
