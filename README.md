@@ -3,10 +3,10 @@ This is a Macroboard. the purpose in this proyect is to map the keys to mute you
 <h1>How do i make one</h1>
 You Just need an Arduino pro micro with Atmega32u4 Chipset and some switches, you just upload my code and its working.
 The pins you need to connect it are 
-```
+<code>
 byte buttons[] = {2, 3, 4, 5,6,7,8,9}; //Also you can use the analogic pins you have to put them like this A0= 10
 
-```
+</code>
 <h1>Photo Below</h1>
 <img src="https://i.imgur.com/OrkCfag.png">
 <img src="https://i.imgur.com/P76JepT.jpg">
