@@ -30,4 +30,4 @@ I know that is pretty horrible but is a prototype so XD
 <img src="https://i.imgur.com/hQceTn2.jpg">
 
 <h1>Help</h1> 
-if you need help dont heasitate to message me in discord *Gael#2505*
+if you need help dont heasitate to message me in discord <code>Gael#2505</code>
