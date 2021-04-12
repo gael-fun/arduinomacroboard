@@ -18,3 +18,11 @@ Example code:
 ```
 # Explanation of the code
 What the code does it detects if you press the switch so if you do it will turn on the integrated led in the arduino and then it sends the keypressed 
+
+# Photos of the Build
+I know that is pretty horrible but is a prototype so XD
+<img src="https://i.imgur.com/SnH7amB.jpg">
+<img src="https://i.imgur.com/hQceTn2.jpg">
+
+# Help 
+if you need help dont heasitate to message me in discord *Gael#2505*
