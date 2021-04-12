@@ -10,7 +10,7 @@ byte buttons[] = {2, 3, 4, 5,6,7,8,9}; //Also you can use the analogic pins you 
 # Photo Below
 <img src="https://i.imgur.com/OrkCfag.png">
 <img src="https://i.imgur.com/P76JepT.jpg">
-# What my code does?
+# What my code does
 It generates the F13-F20 keys and actuates them when you press the switches.
 Example code:
 ```
