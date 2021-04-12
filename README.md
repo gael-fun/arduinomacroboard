@@ -1,12 +1,17 @@
 # About This proyect
-This is a Macroboard.The purpouse in this proyect is to map the keys to mute yourself in discord , obs , etc.
+This is a Macroboard. the purpose in this proyect is to map the keys to mute yourself in discord , obs , etc.
 # How do i make one
-You Just need an Arduino pro micro with Atmega32u4 Chipset and some switches, you just upload my code
+You Just need an Arduino pro micro with Atmega32u4 Chipset and some switches, you just upload my code and its working.
+The pins you need to connect it are 
+```
+byte buttons[] = {2, 3, 4, 5,6,7,8,9}; //Also you can use the analogic pins you have to put them like this A0= 10
+
+```
 Photo Below:
 <img src="https://i.imgur.com/OrkCfag.png">
 <img src="https://i.imgur.com/P76JepT.jpg">
 # ¿What my code does?
-It generates the F13-F20 keys and actuates them when you press the switches 
+It generates the F13-F20 keys and actuates them when you press the switches.
 Example code:
 ```
   if (pressed[0] >= DEBOUNCE)
