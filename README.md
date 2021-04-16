@@ -4,8 +4,7 @@ This is a Macroboard. the purpose in this proyect is to map the keys to mute you
 You Just need an Arduino pro micro with Atmega32u4 Chipset and some switches, you just upload my code and its working.
 The pins you need to connect it are 
 <code>
-byte buttons[] = {2, 3, 4, 5,6,7,8,9}; //Also you can use the analogic pins you have to put them like this A0= 10
-
+2, 3, 4, 5,6,7,8,9
 </code>
 <h1>Photo Below</h1>
 <img src="https://i.imgur.com/OrkCfag.png">
@@ -25,7 +24,7 @@ Example code:
 What the code does it detects if you press the switch so if you do it will turn on the integrated led in the arduino and then it sends the keypressed 
 
 <h1>Photos of the Build</h1>
-I know that is pretty horrible but is a prototype so XD
+I know that is pretty horrible but is a prototype :D
 <img src="https://i.imgur.com/SnH7amB.jpg">
 <img src="https://i.imgur.com/hQceTn2.jpg">
 
