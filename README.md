@@ -12,14 +12,14 @@ The pins you need to connect it are
 <h1>What the code does?</h1>
 It generates the F13-F20 keys and actuates them when you press the switches.
 Example code:
-<code>
-  if (pressed[0] >= DEBOUNCE)
+```
+ if (pressed[0] >= DEBOUNCE)
   {
     if (!digitalRead(SHIFTLED))
     {
       keySend(KEY_F13); // F13
     }
-</code>
+```
 <h1>Explanation of the code</h1>
 What the code does it detects if you press the switch so if you do it will turn on the integrated led in the arduino and then it sends the keypressed 
 
