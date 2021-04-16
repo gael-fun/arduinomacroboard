@@ -4,7 +4,7 @@ This is a Macroboard. the purpose in this proyect is to map the keys to mute you
 You Just need an Arduino pro micro with Atmega32u4 Chipset and some switches, you just upload my code and its working.
 The pins you need to connect it are 
 <code>
-2, 3, 4, 5,6,7,8,9
+2, 3, 4, 5, 6, 7,8 ,9
 </code>
 <h1>Photo Below</h1>
 <img src="https://i.imgur.com/OrkCfag.png">
