@@ -12,7 +12,7 @@ The pins you need to connect it are
 <h1>What the code does?</h1>
 It generates the F13-F20 keys and actuates them when you press the switches.
 Example code:
-```fix
+```js
  if (pressed[0] >= DEBOUNCE)
   {
     if (!digitalRead(SHIFTLED))
